@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Theateronline.be</title>
+    <link rel="stylesheet" href="./node_modules/@s3bubble/player/dist/css/s3bubble.min.css" />
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="./styles/videoplayer.css">
+
+</head>
+<body>
+    <div class="header">
+        <div class="logo">theateronline</div>
+        <div class="navigation">
+            <a class="nav-item" href="index.html">Home</a>
+            <a class="nav-item">Producenten</a>
+            <a class="nav-item">Prijzen</a>
+        </div>
+    </div>
+    
+    <div class="page">
+
+    <script>
+    window.s3bubbleGlobals = {
+    preventScreenRecording: true,
+    debug: false,
+    poweredBy: [{
+        href: "https://deebug.be/theateronline",
+        label: "Powered by theateronline.be"
+    }, ]
+}
+    </script><script>
+          
+          function play(){
+            document.querySelector('.player-title').classList.add("invisible");
+          }
+
+          function stop(){
+            document.querySelector('.player-title').classList.remove("invisible");
+          }
+      </script>
+    <div class="video">
+        <div id="my-player" class="player"></div>
+        <script src="./node_modules/@s3bubble/player/dist/js/s3bubble.min.js"></script>
+        <script>
+            s3bubble('my-player').media({
+                code: 's855np'
+                
+            }, function(player) {
+                // You can listen to any video events here
+                /*player.on('timeupdate', function(event) {
+                    console.log('event', player.currentTime());
+                });*/
+
+                player.on('userinactive', () => {
+                    this.play()
+                })
+                player.on('useractive', () => {
+                    this.stop()
+                })
+                
+            });
+        </script>
+        <div class="title player-title">Pinokkio?</div>
+    </div>
+
+    
+    
+    <div class="details">
+        <h2 class="title">Pinokkio?</h2>
+      <div class="user-info">
+        <span>Muzinar</span>
+        <span>Pauze inbegrepen</span>
+        <span>140 min</span>
+      </div>
+      
+      <div class="video-info">
+        <span>Musical</span>
+        <span>Humor</span>
+
+      </div>
+      
+    </div>
+    <div class="buy">
+        <button>Koop deze show</button>
+        <button>Bekijk met theateronline+</button>
+        <button>Bestel DVD</button>
+      </div>
+    <div class="description">
+      <p>Demo is gelimiteerd tot 10 min.</p>
+    </div>
+  </div>
+  
+
+    <div class="footer">
+        <div class="links">
+          <a href="#">Algemene voorwaarden Theateronline.be</a>
+          <a href="#">Veelgestelde vragen</a>
+          <a href="#">Contact</a>
+          <a href="#">Privacybeleid</a>
+          <a href="#">Cookiebeleid</a>
+          <p>DEKETELECREATIONS BVBA</p>
+        </div>
+      </div>
+</body>
+</html>

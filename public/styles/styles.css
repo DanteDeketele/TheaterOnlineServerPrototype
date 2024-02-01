@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap');
+
+        body {
+            background: rgb(30, 30, 30);
+            color: #fff;
+            font-family: 'Nunito', sans-serif;
+            padding: 0;
+            margin: 0;
+        }
+        .header {
+            background-color: #2C2C2C;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .logo {
+            font-size: 24px; 
+        }
+        .logo::after{
+            content: ".be";
+            color: greenyellow;
+            font-size: 20px; 
+        }
+        .navigation {
+            display: flex;
+        }
+        .nav-item {
+            margin-right: 20px; 
+            font-size: 20px; 
+            margin-top: 2px;
+            transition: color 0.2s;
+            cursor: pointer;
+            color: #fff;
+            text-decoration: none;
+        }
+        .nav-item:hover{
+            color: greenyellow;
+            text-decoration: underline;
+        }
+        .featured-show {
+            position: relative;
+            height: 50vh;
+            background-size: cover;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .featured-show img {
+           width: 100%;
+           height: 150%;
+           position: absolute;
+           top:0;
+           left: 0;
+           z-index: -10;
+           object-fit: cover;
+        }
+
+        .featured-show div{
+            padding: 10px 30px ;
+            bottom:0;
+            left: 0;
+            z-index: 10;
+            position: absolute;
+            color: #fff;
+
+            
+        }
+        .featured-show div h2{
+                font-size: 50px; 
+                margin-bottom: 5px;
+        }
+        .featured-show div p{
+                font-size: 30px; 
+                margin-bottom: 5px;
+        }
+
+        .featured-show .gradient-overlay {
+            position: absolute;
+            bottom: -50%;
+            left: 0;
+            right: 0;
+            z-index: -10;
+            height: 50%; /* Adjust the gradient height as needed */
+            background: linear-gradient(to bottom, rgba(30, 30, 30, 0), rgba(30, 30, 30, 1));
+        }
+
+        .show {
+        background-color: transparent;
+        color: #fff;
+        padding: 0px;
+        text-align: center;
+        border-radius: 5px;
+        display: inline-block;
+        width: 15%; /* Adjust the width as needed */
+        aspect-ratio: calc(2/3); /* Adjust the height as needed */
+        overflow: hidden;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        position: relative;
+        cursor: pointer;
+        }
+
+        .show img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .movie-details {
+           display: none;
+        }
+
+        .show:hover .movie-details {
+           display: block;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+    .show:hover img {
+        transform: scale(1.05);
+    }
+
+        .category {
+            overflow-x: scroll;
+            overflow-y: hidden;
+            white-space: nowrap;
+            padding: 20px 30px ;
+        }
+        .category h2 {
+            margin: 5px;
+            margin-left: 0px;
+            font-size: 35px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .category > h2:after {
+            content: "meer weergeven >";
+            position: relative;
+            opacity: 0;
+            transition: all 0.3s ease;
+            color: greenyellow;
+            padding-left: -100px;
+            font-size: 20px;
+            
+
+        }
+
+        .category > h2:hover::after {
+            opacity: 1;
+            padding-left: 10px;
+
+        }
+
+        .shaka-spinner-container .shaka-spinner {
+      border-color: yellowgreen;
+      border-top-color: transparent;
+    }
+
+    .footer {
+        display: flex;
+        justify-content: space-between;
+        background-color: #141414;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+      }
+      
+      .footer .links {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+      }
+      
+      .footer .links a {
+        color: #fff;
+        text-decoration: none;
+      }
+      
