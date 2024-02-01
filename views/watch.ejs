@@ -11,7 +11,7 @@
     <div class="header">
         <div class="logo">theateronline</div>
         <div class="navigation">
-            <a class="nav-item" href="index.html">Home</a>
+            <a class="nav-item" href="../">Home</a>
             <a class="nav-item">Producenten</a>
             <a class="nav-item">Prijzen</a>
         </div>
@@ -60,17 +60,17 @@
                 
             });
         </script>
-        <div class="title player-title">Pinokkio?</div>
+        <div class="title player-title"><%= video.title %></div>
     </div>
 
     
     
     <div class="details">
-        <h2 class="title">Pinokkio?</h2>
+        <h2 class="title"><%= video.title %></h2>
       <div class="user-info">
-        <span>Muzinar</span>
+        <span><%= video.creator %></span>
         <span>Pauze inbegrepen</span>
-        <span>140 min</span>
+        <span><%= video.duration %></span>
       </div>
       
       <div class="video-info">
@@ -86,7 +86,7 @@
         <button>Bestel DVD</button>
       </div>
     <div class="description">
-      <p>Demo is gelimiteerd tot 10 min.</p>
+      <p><%= video.discription %></p>
     </div>
   </div>
   

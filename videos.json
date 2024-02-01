@@ -1,0 +1,35 @@
+[
+    {
+      "id": 1,
+      "title": "De Tovenaar van Oz",
+      "url": "https://example.com/nodejs-intro",
+      "creator": "Muzinar",
+      "duration": "140",
+      "discription":"bescrijving"
+    },
+    {
+      "id": 2,
+      "title": "Pinokkio?",
+      "url": "https://example.com/promises-explained",
+      "creator": "Muzinar",
+      "duration": "140",
+      "discription":"bescrijving"
+    },
+    {
+      "id": 3,
+      "title": "React Basics Tutorial",
+      "url": "https://example.com/react-basics",
+      "creator": "DeketeleCreations",
+      "duration": "15",
+      "discription":"bescrijving"
+    },
+    {
+      "id": 4,
+      "title": "MongoDB Crash Course",
+      "url": "https://example.com/mongodb-crash-course",
+      "creator": "DeketeleCreations",
+      "duration": "15",
+      "discription":"bescrijving"
+    }
+  ]
+  

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Theateronline.be</title>
+    <link rel="stylesheet" href="./styles/styles.css">
+</head>
+<body>
+    <div class="header">
+        <div class="logo">theateronline</div>
+        <div class="navigation">
+            <a class="nav-item" href="./">Home</a>
+            <a class="nav-item">Producenten</a>
+            <a class="nav-item">Prijzen</a>
+        </div>
+    </div>
+    <div class="featured-show">
+        <img src="banners/2.jpg" alt="Pinokkio?">
+        <div class="gradient-overlay"></div>
+        <div>
+            <h2>Pinokkio?</h2>
+            <p><a>Bekijk nu</a> Muzinar 140min</p>
+        </div>
+    </div>
+    <div class="category">
+        <h2>Voor jou</h2>
+    
+        <% videos.forEach(function(video){ %>
+            <a class="show" href="./watch?id=<%= video.id %>">
+                <img src="posters/<%= video.id %>.png" alt="<%= video.title %>">
+                <div class="movie-details">
+                    <h2><%= video.title %></h2>
+                    <p><%= video.creator %></p>
+                    <p><%= video.duration %>min</p>
+                </div>
+            </a>
+        <%}) %>
+
+    </div>
+    <div class="category">
+        <h2>Populair</h2>
+    </div>
+    <div class="category">
+        <h2>Beste beoordeling</h2>
+    </div>
+    <div class="category">
+        <h2>Recent toegevoegd</h2>
+    </div>
+    <div class="footer">
+        <div class="links">
+          <a href="#">Algemene voorwaarden Theateronline.be</a>
+          <a href="#">Veelgestelde vragen</a>
+          <a href="#">Contact</a>
+          <a href="#">Privacybeleid</a>
+          <a href="#">Cookiebeleid</a>
+          <p>DEKETELECREATIONS BVBA</p>
+        </div>
+      </div>
+</body>
+</html>
