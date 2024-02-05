@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "website": "node server.js"
   },
   "author": "",
+  "type": "module",
   "license": "ISC",
   "dependencies": {
     "aws-sdk": "^2.1549.0",
