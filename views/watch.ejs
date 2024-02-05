@@ -2,9 +2,14 @@
 <html>
 <head>
     <title>Theateronline.be</title>
-    <link rel="stylesheet" href="./node_modules/@s3bubble/player/dist/css/s3bubble.min.css" />
     <link rel="stylesheet" href="./styles/styles.css">
     <link rel="stylesheet" href="./styles/videoplayer.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.7.9/shaka-player.ui.min.js"></script>
+    <!-- Shaka Player ui compiled library default CSS: -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.7.9/controls.min.css">
+    <!-- Chromecast SDK (if you want Chromecast support for your app): -->
+    <script defer src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js"></script>
 
 </head>
 <body>
@@ -18,17 +23,7 @@
     </div>
     
     <div class="page">
-
-    <script>
-    window.s3bubbleGlobals = {
-    preventScreenRecording: true,
-    debug: false,
-    poweredBy: [{
-        href: "https://deebug.be/theateronline",
-        label: "Powered by theateronline.be"
-    }, ]
-}
-    </script><script>
+      <script>
           
           function play(){
             document.querySelector('.player-title').classList.add("invisible");
@@ -39,45 +34,71 @@
           }
       </script>
     <div class="video">
-        <div id="my-player" class="player"></div>
-        <script src="./node_modules/@s3bubble/player/dist/js/s3bubble.min.js"></script>
-        <script>
-            s3bubble('my-player').media({
-                code: 's855np'
-                
-            }, function(player) {
-                // You can listen to any video events here
-                /*player.on('timeupdate', function(event) {
-                    console.log('event', player.currentTime());
-                });*/
+      <div data-shaka-player-container data-shaka-player-cast-receiver-id="07AEE832">
+        <video autoplay data-shaka-player id="video" style="width:100%;height:100%"></video>
+      </div>
+      <script>
+        var manifestUri;
+    
+        async function init() {
+          const video = document.getElementById('video');
+          const ui = video['ui'];
+          const controls = ui.getControls();
+          const player = controls.getPlayer();
+    
+          window.player = player;
+          window.ui = ui;
+    
+          player.addEventListener('error', onPlayerErrorEvent);
+          controls.addEventListener('error', onUIErrorEvent);
+    
+          try {
+            // Extract id from the URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const pageId = urlParams.get('id');
+            console.log("id in header: "+ pageId);
+            // Construct the API endpoint with the id
+            const apiEndpoint = `/getVideo?id=${pageId}`;
+    
+            // Fetch the video URL from the server
+            const response = await fetch(apiEndpoint);
+            const videoUrl = await response.text();
 
-                player.on('userinactive', () => {
-                    this.play()
-                })
-                player.on('useractive', () => {
-                    this.stop()
-                })
-                
-            });
-        </script>
-        <div class="title player-title"><%= video.title %></div>
+    
+            // Set the fetched video URL as the manifestUri
+            manifestUri = videoUrl;
+    
+            // Load the player with the fetched video URL
+            await player.load(manifestUri);
+            console.log('The video has now been loaded!');
+          } catch (error) {
+            onPlayerError(error);
+          }
+        }
+    
+        function onPlayerErrorEvent(errorEvent) {
+          onPlayerError(event.detail);
+        }
+    
+        function onPlayerError(error) {
+          console.error('Error code', error.code, 'object', error);
+        }
+    
+        function onUIErrorEvent(errorEvent) {
+          onPlayerError(event.detail);
+        }
+    
+        function initFailed(errorEvent) {
+          console.error('Unable to load the UI library!');
+        }
+    
+        document.addEventListener('shaka-ui-loaded', init);
+        document.addEventListener('shaka-ui-load-failed', initFailed);
+        // Add event listeners for play and pause events
+      </script>
+      <div class="title player-title"><%= video.title %></div>
     </div>
-
     
-    
-    <div class="details">
-        <h2 class="title"><%= video.title %></h2>
-      <div class="user-info">
-        <span><%= video.creator %></span>
-        <span>Pauze inbegrepen</span>
-        <span><%= video.duration %></span>
-      </div>
-      
-      <div class="video-info">
-        <span>Musical</span>
-        <span>Humor</span>
-
-      </div>
       
     </div>
     <div class="buy">

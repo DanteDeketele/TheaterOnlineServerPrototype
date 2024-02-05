@@ -2,7 +2,7 @@
     {
       "id": 1,
       "title": "De Tovenaar van Oz",
-      "url": "https://example.com/nodejs-intro",
+      "code": "s86zag",
       "creator": "Muzinar",
       "duration": "140",
       "discription":"bescrijving"
@@ -10,26 +10,26 @@
     {
       "id": 2,
       "title": "Pinokkio?",
-      "url": "https://example.com/promises-explained",
+      "code": "s855np",
       "creator": "Muzinar",
       "duration": "140",
-      "discription":"bescrijving"
+      "discription":"Pinokkio? de musical word gepresenteerd door muzinar. De musical werd 11 keer gespeeld. 22/12/2017 tot 30/12/2017.\n"
     },
     {
       "id": 3,
-      "title": "React Basics Tutorial",
-      "url": "https://example.com/react-basics",
-      "creator": "DeketeleCreations",
+      "title": "One Vision (arr. Philip Lawson) - QUEEN",
+      "code": "s84vfe",
+      "creator": "La Gioia",
       "duration": "15",
       "discription":"bescrijving"
     },
     {
       "id": 4,
       "title": "MongoDB Crash Course",
-      "url": "https://example.com/mongodb-crash-course",
+      "code": "s855np",
       "creator": "DeketeleCreations",
       "duration": "15",
-      "discription":"bescrijving"
+      "discription":""
     }
   ]
   

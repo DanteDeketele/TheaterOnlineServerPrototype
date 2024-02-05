@@ -6,7 +6,7 @@
     padding: 20px;
   }
   
-  .page .video {
+  .page >.video {
     width: 80%;
     background-color: #000;
     margin-bottom: 20px;
@@ -14,8 +14,12 @@
     overflow: hidden;
     aspect-ratio: calc(16/9);
   }
+  .page >.video >video, .page >.video > div {
+    width: 100%;
+    height: 100%;
+  }
   
-  .page .video .title {
+  .page >.video >.title {
     font-size: 24px;
     font-weight: bold;
     position: absolute;
@@ -24,7 +28,7 @@
     transition: all 0.3s ease;
   }
 
-  .page .video .title::before{
+  .page >.video >.title::before{
     content: "";
     display: block;
     background: greenyellow;
@@ -35,13 +39,18 @@
     top: 3px;
     transition: all 0.3s ease;
   }
+
+  .shaka-video-container{
+    width: 100%;
+    height: 100%;
+  }
   
-  .page .video .title.invisible {
+  .page >.video >.title.invisible {
     opacity: 0;
     left: -10px;
   }
 
-  .page .video .title.invisible::before {
+  .page >.video >.title.invisible::before {
     opacity: 0;
     left: 5px;
 
