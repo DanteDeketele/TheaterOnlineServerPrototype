@@ -1,0 +1,23 @@
+<% if (notification) { %>
+    <div class="notification">
+        <img class="info-icon" src="./icons/info.svg"/>
+        <p>
+            <%= notification %>
+        </p>
+        <a class="closebutton" onclick="closeNotification()">
+            <img src="./icons/close.svg">
+        </a>
+    </div>
+    <script>
+        function closeNotification() {
+            var notificationDiv = document.querySelector('.notification');
+            if (notificationDiv) {
+                notificationDiv.remove();
+            }
+    
+            // Remove the script element
+            var scriptElement = document.currentScript || document.scripts[document.scripts.length - 1];
+            scriptElement.remove();
+        }
+    </script>
+    <% } %>

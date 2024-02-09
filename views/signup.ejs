@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Theateronline.be</title>
+    <link rel="stylesheet" href="./styles/styles.css">
+
+</head>
+<body>
+    <%- include('header') %>
+    
+    <div class="container">
+        <h2>Registreren</h2>
+        <form id="registrationForm" action="/signup" method="post">
+            <label for="username">Gebruikersnaam:</label>
+            <input type="text" id="username" name="username" required onchange="validateForm()">
+    
+            <label for="email">E-mail adres:</label>
+            <input type="email" id="email" name="email" required onchange="validateForm()">
+    
+            <label for="password">Wachtwoord:</label>
+            <input type="password" id="password" name="password" required onchange="validateForm()">
+    
+            <label for="passwordcert">Herhaal Wachtwoord:</label>
+            <input type="password" id="passwordcert" name="passwordcert" required onchange="validateForm()">
+    
+            <button type="submit" id="registerButton" disabled>Registreer</button>
+        </form>
+        <p>
+            Al geregistreerd? <a href="./login">Login</a>
+        </p>
+    
+        <script>
+            function validateForm() {
+                var username = document.getElementById("username").value;
+                var email = document.getElementById("email").value;
+                var password = document.getElementById("password").value;
+                var passwordcert = document.getElementById("passwordcert").value;
+                var registerButton = document.getElementById("registerButton");
+        
+                // Reset styles and messages
+                resetStyles();
+        
+                var isValid = true;
+        
+                if (username === "") {
+                    isValid = false;
+                    displayErrorMessage("", "username");
+                }
+                
+                if (email === "") {
+                    isValid = false;
+                    displayErrorMessage("", "email");
+                }else
+                if (!isValidEmail(email)) {
+                    isValid = false;
+                    displayErrorMessage("Ongeldig e-mailadres.", "email");
+                }
+        
+                
+        
+                if (password === "") {
+                    isValid = false;
+                    displayErrorMessage("", "password");
+                }else
+                if (!isStrongPassword(password)) {
+                    isValid = false;
+                    displayErrorMessage("Wachtwoord moet minstens 8 tekens lang zijn en minstens één cijfer en één speciaal karakter bevatten.", "password");
+                }
+        
+                if (passwordcert === "") {
+                    isValid = false;
+                    displayErrorMessage("", "passwordcert");
+                }else
+                if (password !== passwordcert) {
+                    isValid = false;
+                    displayErrorMessage("Wachtwoorden komen niet overeen.", "passwordcert");
+                }
+        
+                // Additional validation logic can be added here if needed
+        
+                if (!isValid) {
+                    registerButton.disabled = true;
+                } else {
+                    registerButton.disabled = false;
+                }
+            }
+        
+            function displayErrorMessage(message, inputId) {
+                var errorMessageLabel = document.createElement("label");
+                errorMessageLabel.innerHTML = message;
+                errorMessageLabel.style.color = "red";
+                errorMessageLabel.setAttribute("id", inputId + "Error");
+        
+                var inputField = document.getElementById(inputId);
+                inputField.parentNode.insertBefore(errorMessageLabel, inputField.nextSibling);
+                inputField.style.border = "2px solid red";
+            }
+        
+            function resetStyles() {
+                var inputFields = document.getElementsByTagName("input");
+                for (var i = 0; i < inputFields.length; i++) {
+                    inputFields[i].style.border = "";
+                }
+        
+                var errorLabels = document.querySelectorAll("label[id$='Error']");
+                for (var j = 0; j < errorLabels.length; j++) {
+                    errorLabels[j].parentNode.removeChild(errorLabels[j]);
+                }
+            }
+        
+            function isValidEmail(email) {
+                // Simple email validation, you might want to use a more robust solution
+                var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailRegex.test(email);
+            }
+        
+            function isStrongPassword(password) {
+                // Password should be at least 8 characters long and contain at least one digit and one special character
+                var passwordRegex = /^(?=.*\d)(?=.*[a-zA-Z]).{8,}$/;
+                return passwordRegex.test(password);
+            }
+        </script>
+        
+        
+    </div>
+    
+    <%- include('footer') %>
+</body>
+</html>

@@ -5,7 +5,8 @@
       "code": "s86zag",
       "creator": "Muzinar",
       "duration": "140",
-      "discription":"bescrijving"
+      "discription":"bescrijving",
+      "priceInCents": 350
     },
     {
       "id": 2,
@@ -13,7 +14,8 @@
       "code": "s855np",
       "creator": "Muzinar",
       "duration": "140",
-      "discription":"Pinokkio? de musical word gepresenteerd door muzinar. De musical werd 11 keer gespeeld. 22/12/2017 tot 30/12/2017.\n"
+      "discription":"Pinokkio? de musical word gepresenteerd door muzinar. De musical werd 11 keer gespeeld. 22/12/2017 tot 30/12/2017.\n",
+      "priceInCents": 350
     },
     {
       "id": 3,
@@ -21,7 +23,8 @@
       "code": "s84vfe",
       "creator": "La Gioia",
       "duration": "15",
-      "discription":"bescrijving"
+      "discription":"bescrijving",
+      "priceInCents": 350
     },
     {
       "id": 4,
@@ -29,7 +32,8 @@
       "code": "s855np",
       "creator": "DeketeleCreations",
       "duration": "15",
-      "discription":""
+      "discription":"",
+      "priceInCents": 350
     }
   ]
   

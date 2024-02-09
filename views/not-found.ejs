@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <title>Video Not Found</title>
+</head>
+<body>
+    <%- include('header') %>
+
+    <div class="container">
+        <img class="error-image" src="./icons/404.svg">
+        <h2><%= title %></h2>
+        <p>
+            <%= message %>
+        </p>
+        <p><a href="../">Return to homepage</a></p>
+    </div>
+
+    <%- include('footer') %>
+</body>
+</html>

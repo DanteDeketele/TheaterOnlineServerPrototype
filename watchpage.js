@@ -14,9 +14,11 @@ function display(req, res){
 
 // Display a error page given an id
 function displayWatchNotFound(res, videoId) {
-    res.render('watch-not-found.ejs', {
-        videoId: videoId
+    res.render('not-found.ejs', {
+        title: 'Video not found',
+        message: 'We could not find a video with the id "' + videoId +'"'
     });
+    res.status(404);
 }
 
 // Display a watch page given an id

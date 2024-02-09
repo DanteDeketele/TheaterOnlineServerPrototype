@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Theateronline.be</title>
+    <link rel="stylesheet" href="./styles/styles.css">
+
+</head>
+<body>
+    <% if (typeof notification !== 'undefined') { %>
+        <%- include('notification', { notification: notification }) %>
+    <% } %>
+    <%- include('header') %>
+    
+    <div class="container">
+        <h2>Login</h2>
+        <form action="/login" method="post">
+            <label for="username">Gebruikersnaam/Email:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Wachtwoord:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Login</button>
+        </form>
+        <p>
+            Nog niet geregistreerd? <a href="./signup">Registreer hier gratis</a>
+        </p>
+    </div>
+  
+
+    <%- include('footer') %>
+</body>
+</html>

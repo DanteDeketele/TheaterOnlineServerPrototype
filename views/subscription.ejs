@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Theateronline.be</title>
+    <link rel="stylesheet" href="./styles/styles.css">
+
+</head>
+<body>
+  <%- include('header') %>
+    
+    <div class="container">
+        <button id="buy-subscription">Abboneer op theateronline+</button>
+    </div>
+      
+  <script>
+    const button = document.getElementById("buy-subscription")
+
+    button.addEventListener("click", () => {
+      fetch("./create-checkout-session-subscription", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          months: 1
+        }),
+      })
+        .then(res => {
+          if (res.ok) return res.json()
+          return res.json().then(json => Promise.reject(json))
+        })
+        .then(({ url }) => {
+          window.location = url
+        })
+        .catch(e => {
+          console.error(e.error)
+        })
+    })
+
+  </script>
+  
+
+  <%- include('footer') %>
+</body>
+</html>

@@ -23,7 +23,8 @@
             font-size: 20px; 
         }
         .navigation {
-            display: flex;
+            right: 0;
+            position: absolute;
         }
         .nav-item {
             margin-right: 20px; 
@@ -184,4 +185,97 @@
         color: #fff;
         text-decoration: none;
       }
+
+      .container {
+        background-color: #333;
+        padding: 20px;
+        margin: 0 auto;
+        max-width: 1000px;
+    }
+    
+    .error-image{
+        max-height: 50vh;
+    }
+
+    .container form {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .container label {
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+    
+    .container input {
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    
+    
+    .container button {
+        background-color: #4caf50;
+        color: #fff;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    
+    .container button:hover {
+        background-color: #45a049;
+    }
+    
+    .container button:disabled {
+        background-color: #818181;
+        cursor: default;
+    }
+
+    .container a{
+        color: yellowgreen;
+    }
+
+    .notification{
+        background: #4caf50;;
+        width: 100%;
+        height: 50px;
+        margin: 0;
+        position: relative;
+    }
+
+    .notification .info-icon{
+        height: 40px;
+        padding: 0;
+        margin: 0;
+        position: absolute;
+        left: 5px;
+        top: 5px;
+    }
+
+    .notification p{    
+        padding: 0;
+        margin: 0;
+        font-size: 25px;
+        margin-left: 50px;
+        padding-top: 7px;
+    }
+
+    .notification .closebutton{
+        height: 25px;
+        width: 25px;
+        padding: 0;
+        margin: 0;
+        position: absolute;
+        right: 5px;
+        top: 12.5px;
+        cursor: pointer;
+    }
+
+    .notification .closebutton img{
+        width: 100%;
+    }
       

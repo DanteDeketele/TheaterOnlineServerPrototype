@@ -1,0 +1,3 @@
+# Algemene voorwaarden
+
+Lorem Ipsum

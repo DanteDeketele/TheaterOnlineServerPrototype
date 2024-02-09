@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Theateronline.be</title>
+    <link rel="stylesheet" href="./styles/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js"></script>
+</head>
+<body>
+  <%- include('header') %>
+    
+  <div id="container" class="container"></div>
+
+  <script>
+    // Add your JavaScript here
+    window.onload = function() {
+        var params = new URLSearchParams(window.location.search);
+        var filename = params.get('file');
+        var url = './documents/' + filename + '.md'; // replace with your URL
+        fetch(url)
+            .then(response => response.text())
+            .then(text => {
+                var textEdited = 'Deze pagina en pdf bestanden zijn automatisch gegenereerd op basis van [' + filename +'.md](' + url +'). | ';
+                textEdited += '[Download dit document als pdf](./getPdf?file='+filename+')\n\n---\n\n'; 
+                textEdited += text;
+
+                var converter = new showdown.Converter(),
+                text1 = textEdited,
+                html = converter.makeHtml(text1);
+                var contentDiv = document.getElementById('container');
+                contentDiv.innerHTML = html;
+            })
+            .catch(error => console.error('Error:', error));
+    };
+</script>
+
+  <%- include('footer') %>
+</body>
+</html>
